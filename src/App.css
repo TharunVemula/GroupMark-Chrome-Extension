@@ -1,0 +1,461 @@
+.appShell {
+  width: 680px;
+  min-height: 600px;
+  overflow: hidden;
+  color: #111827;
+  background: linear-gradient(180deg, #eef2ff 0%, #f4f5f9 120px, #f4f5f9 100%);
+}
+
+.heroBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 14px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(79, 70, 229, 0.12);
+}
+
+.statCluster,
+.backupActions,
+.toolbarRow,
+.colorSwatches,
+.softActions,
+.rowActions,
+.primaryActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quickPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  height: 478px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 12px;
+  background: #fafbff;
+  border-right: 1px solid #e5e7eb;
+}
+
+.groupList,
+.tabList {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: auto;
+}
+
+.groupList {
+  flex: 1;
+  gap: 6px;
+  padding-right: 2px;
+}
+
+.groupItem {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  transition: background 0.15s ease;
+}
+
+.groupItem:hover .groupCardActions,
+.groupItem:focus-within .groupCardActions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.groupItem.active .groupButton {
+  background: #ffffff;
+  border-color: #c7d2fe;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.12);
+}
+
+.groupCardActions {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.groupIconButton {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  place-items: center;
+  color: #4f46e5;
+  background: #e0e7ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.groupIconButton:hover:not(:disabled) {
+  background: #c7d2fe;
+}
+
+.groupIconButton.danger {
+  color: #dc2626;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.groupIconButton.danger:hover {
+  background: #fee2e2;
+}
+
+.groupIconButton:disabled {
+  cursor: default;
+  opacity: 0.35 !important;
+}
+
+.groupButton {
+  display: grid;
+  grid-template-columns: 6px minmax(0, 1fr);
+  gap: 10px;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 10px;
+  color: #1f2937;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.groupButton:hover {
+  background: #ffffff;
+  border-color: #e5e7eb;
+}
+
+.groupItem.active .groupButton:hover {
+  border-color: #c7d2fe;
+}
+
+.groupItem > span {
+  display: flex;
+  align-items: stretch;
+}
+
+.groupItem .MuiTooltip-root {
+  flex: 1;
+  min-width: 0;
+}
+
+.groupItem .MuiTooltip-root .groupButton {
+  width: 100%;
+}
+
+.groupMeta strong,
+.groupMeta small,
+.tabTitle,
+.tabText p {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.groupMeta strong {
+  max-width: 118px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.groupMeta small,
+.muted,
+.urlText {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.groupColor,
+.largeGroupColor {
+  display: block;
+  border-radius: 99px;
+}
+
+.groupColor {
+  width: 6px;
+  height: 100%;
+  min-height: 34px;
+}
+
+.largeGroupColor {
+  width: 10px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.sidebarEmpty {
+  padding: 20px 8px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.detailPane {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.groupHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.groupTitleBlock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.groupTitleText {
+  min-width: 0;
+}
+
+.groupTitleText h2 {
+  margin: 0;
+  overflow: hidden;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.softActions {
+  flex-shrink: 0;
+}
+
+.toolbarRow {
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.colorSwatches {
+  margin-left: auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.swatch {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 2px solid #ffffff;
+  border-radius: 99px;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transition: transform 0.12s ease;
+}
+
+.swatch:hover {
+  transform: scale(1.1);
+}
+
+.swatch.selected {
+  box-shadow: 0 0 0 2px #111827;
+}
+
+.tabList {
+  flex: 1;
+  gap: 8px;
+  padding-right: 2px;
+}
+
+.tabItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tabItem:hover {
+  border-color: #c7d2fe;
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.08);
+}
+
+.tabItem:hover .rowActions,
+.tabItem:focus-within .rowActions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.faviconButton {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  place-items: center;
+  color: #4f46e5;
+  font-size: 14px;
+  font-weight: 800;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.faviconButton img {
+  width: 18px;
+  height: 18px;
+}
+
+.tabText {
+  min-width: 0;
+}
+
+.tabTitle {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+.rowActions {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  justify-content: flex-end;
+  gap: 4px;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.rowIconButton {
+  width: 30px !important;
+  height: 30px !important;
+  color: #4f46e5 !important;
+  background: #eef2ff !important;
+  border: 1px solid #c7d2fe !important;
+  border-radius: 9px !important;
+}
+
+.rowIconButton:hover {
+  background: #e0e7ff !important;
+}
+
+.rowIconButton.danger {
+  color: #dc2626 !important;
+  background: #fef2f2 !important;
+  border-color: #fecaca !important;
+}
+
+.rowIconButton.danger:hover {
+  background: #fee2e2 !important;
+}
+
+.emptyPanel {
+  display: grid;
+  min-height: 140px;
+  place-items: center;
+  padding: 24px;
+  color: #6b7280;
+  text-align: center;
+  background: #ffffff;
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+}
+
+.emptyPanel.large {
+  flex: 1;
+  min-height: 100%;
+  background: transparent;
+  border: none;
+}
+
+.welcomeCard {
+  max-width: 360px;
+  padding: 28px 24px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e0e7ff;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(79, 70, 229, 0.1);
+}
+
+.welcomeCard h2 {
+  margin: 0 0 8px;
+}
+
+.welcomeTips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 16px;
+  text-align: left;
+}
+
+.welcomeTips p {
+  padding: 8px 10px;
+  background: #f5f7ff;
+  border-radius: 8px;
+}
+
+.tabList::-webkit-scrollbar,
+.groupList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tabList::-webkit-scrollbar-thumb,
+.groupList::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+
+.appTooltip {
+  max-width: 240px !important;
+  padding: 7px 10px !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  background: #111827 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.24) !important;
+}
+
+.appTooltipArrow {
+  color: #111827 !important;
+}
